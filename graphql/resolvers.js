@@ -1,34 +1,8 @@
-const person = [
-  {
-    id: 1,
-    name: "hello",
-    age: 1,
-  },
-  {
-    id: 2,
-    name: "my",
-    age: 2,
-  },
-  {
-    id: 3,
-    name: "name",
-    age: 3,
-  },
-  {
-    id: 4,
-    name: "is",
-    age: 4,
-  },
-  {
-    id: 5,
-    name: "juno",
-    age: 5,
-  },
-];
+import { person, getById } from "./db";
 
 export const resolvers = {
   Query: {
     people: () => person,
-    person: (_, { id }) => person.filter((p) => p.id === id)[0],
+    person: (_, { id }) => getById(id),
   },
 };
